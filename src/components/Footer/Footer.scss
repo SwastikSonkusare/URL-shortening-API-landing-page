@@ -1,0 +1,58 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: hsl(260, 8%, 14%);
+    padding: 5rem 10rem;
+
+    &__logo {
+        fill: white;
+        align-self: baseline;
+    }
+
+    &__container {
+        display: flex;
+        grid-gap: 8rem;
+    }
+
+    &__content {
+    }
+    
+    &__header{
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 1.5rem;
+    }
+    
+    &__items{
+        display: flex;
+        grid-gap: 5rem;
+    }
+    
+    &__item {
+
+        &:not(:last-of-type) {
+            margin-bottom: 1rem;
+        }
+    }
+    
+    &__links {
+        text-decoration: none;
+        color: #fff;
+        opacity: .75;
+    }
+
+    &__icons {
+        display: flex;
+       grid-gap: 1rem;
+    }
+
+    &__icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+ul {
+    list-style: none;
+}

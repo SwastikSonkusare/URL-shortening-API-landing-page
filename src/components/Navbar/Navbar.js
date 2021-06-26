@@ -2,16 +2,19 @@ import React from "react";
 
 import NavbarLogo from "../../assests/images/logo.svg";
 import Button from "../Button/Button";
+import LogoSvg from "../LogoSvg/LogoSvg";
 
 import './Navbar.scss'
 
 const Navbar = () => {
   const buttonText = "Sign Up";
+  const color = "34313D";
 
   return (
     <div className="navbar">
       <div className="navbar__logo">
-        <img src={NavbarLogo} alt={NavbarLogo}></img>
+        {/* <img src={NavbarLogo} alt={NavbarLogo}></img> */}
+        <LogoSvg color={color} />
 
         <ul className="navbar__items">
           <li className="navbar__item"><a href="#" className="navbar__links">Features</a></li>
