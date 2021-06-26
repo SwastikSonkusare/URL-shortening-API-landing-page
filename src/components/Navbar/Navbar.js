@@ -1,10 +1,13 @@
 import React from "react";
 
 import NavbarLogo from "../../assests/images/logo.svg";
+import Button from "../Button/Button";
 
 import './Navbar.scss'
 
-const navbar = () => {
+const Navbar = () => {
+  const buttonText = "Sign Up";
+
   return (
     <div className="navbar">
       <div className="navbar__logo">
@@ -18,11 +21,11 @@ const navbar = () => {
       </div>
 
       <div className="navbar__buttons">
-        <button className="navbar__buttons--1">Login</button>
-        <button className="navbar__buttons--2">Sign Up</button>
+        <button className="navbar__buttons-login">Login</button>
+        <Button buttonText = {buttonText} />
       </div>
     </div>
   );
 };
 
-export default navbar;
+export default Navbar;

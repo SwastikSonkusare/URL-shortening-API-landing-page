@@ -37,23 +37,12 @@
         font-size: 1.4rem;
         font-weight: 700;
 
-        &--1 {
+        &-login {
             all: unset;
             font-family: inherit;
             font-size: inherit;
             font-weight: inherit;
             color: hsl(0, 0%, 75%);
-        }
-        
-        &--2 {
-            padding: .8rem 2rem;
-            background-color:  hsl(180, 66%, 49%);
-            font-family: inherit;
-            font-size: inherit;
-            font-weight: inherit;
-            color: #fff;
-            border: none;
-            border-radius: 30px;
-        }
+        }      
     }
 }
