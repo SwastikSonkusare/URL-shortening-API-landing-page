@@ -1,0 +1,59 @@
+.navbar {
+    padding: 4rem 12rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    &__logo {
+        display: flex;
+        grid-gap: 4rem;
+    }
+
+    &__items {
+        list-style: none;
+        display: flex;
+    }
+    
+    
+    &__item {
+        
+        &:not(:last-of-type) {
+            margin-right: 2rem;
+        }
+    }
+    
+    &__links {
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: hsl(0, 0%, 75%);
+    }
+
+    &__buttons {
+        display: flex;
+        grid-gap: 2.5rem;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+
+        &--1 {
+            all: unset;
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            color: hsl(0, 0%, 75%);
+        }
+        
+        &--2 {
+            padding: .8rem 2rem;
+            background-color:  hsl(180, 66%, 49%);
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+        }
+    }
+}
