@@ -45,6 +45,7 @@
         background-color:  hsl(180, 66%, 49%);
         font-weight: 700;
         color: #fff;
+        cursor: pointer;
     }   
 
     &__header {
@@ -61,4 +62,36 @@
         font-size: 1.5rem;
         font-weight: 500;
     }
+}
+
+.api {
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background-color: #fff;
+        max-width: 78rem;
+        margin: 0 auto;
+        border-radius: 5px;
+        transform: translateY(-100%);
+    }
+
+    &__full-link {
+        font-size: 1.3rem;
+        color: hsl(260, 8%, 14%);
+    }
+    
+    &__short-link {
+        font-size: 1.3rem;
+        color: hsl(180, 66%, 49%);
+    }
+
+    &__right-section {
+        display: flex;
+        align-items: center;
+        grid-gap: 2rem;
+    }
+
 }

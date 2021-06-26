@@ -1,6 +1,5 @@
 import React from "react";
 
-import NavbarLogo from "../../assests/images/logo.svg";
 import Button from "../Button/Button";
 import LogoSvg from "../LogoSvg/LogoSvg";
 

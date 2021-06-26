@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./Footer.scss";
-import Logo from "../../assests/images/logo.svg";
+
 import facebookIcon from "../../assests/images/icon-facebook.svg"
 import twitterIcon from "../../assests/images/icon-twitter.svg"
 import instagramIcon from "../../assests/images/icon-instagram.svg"
