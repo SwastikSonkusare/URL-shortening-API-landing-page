@@ -20,6 +20,12 @@
         transform: translateY(-50%);
     }   
 
+    &__spinner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-gap: .3rem;
+    }
    
 
     &__input {
@@ -103,6 +109,12 @@
     &__short-link {
         font-size: 1.3rem;
         color: hsl(180, 66%, 49%);
+        border: none;
+        outline: none;
+        resize: none;
+        overflow: auto;
+        text-align: center;
+        max-height: 20px;
     }
 
     &__right-section {
@@ -113,9 +125,7 @@
 
 }
 
-textarea {
-    border: none;
-    outline: none;
-    resize: none;
-    overflow: auto;
-}
+::selection {
+    color: none;
+    background: none;
+  }

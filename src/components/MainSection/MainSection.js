@@ -1,19 +1,28 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import axios from "axios";
+import { css } from "@emotion/react";
+import ClipLoader from "react-spinners/ClipLoader";
+
 import Card from "../Card/Card";
+import Button from "../Button/Button";
 
 import "./MainSection.scss";
 
-import Button from "../Button/Button";
-
 const MainSection = () => {
-  // const url = "https://api.shrtco.de/v2/"
-  const buttonText = "Copy";
+  let color = "#fff";
+
+  const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: white;
+  `;
+
+  const buttonText = "Shorten It!";
   const shortLinkRef = useRef();
 
   const [input, setInput] = useState("");
   const [shortenLink, setShortenLink] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [emptyInput, setEmptyInput] = useState(false);
 
@@ -21,14 +30,17 @@ const MainSection = () => {
     if (!input.length && !validURL(input)) {
       setEmptyInput(true);
     } else {
+      setLoading(true);
       const response = await fetch(
         `https://api.shrtco.de/v2/shorten?url=${input}`
       );
 
       const data = await response.json();
+      setLoading(false);
       await setShortenLink(data);
 
       setInput("");
+      setEmptyInput(false);
     }
   };
 
@@ -42,15 +54,8 @@ const MainSection = () => {
         "(\\#[-a-z\\d_]*)?$",
       "i"
     ); // fragment locator
-    console.log(pattern);
     return !!pattern.test(str);
   };
-
-  // useEffect(() => {
-  //   if (input.length) {
-  //     fetchData();
-  //   }
-  // }, [shortenLink, input, fetchData]);
 
   const copyToClipboard = () => {
     const el = shortLinkRef.current;
@@ -67,16 +72,23 @@ const MainSection = () => {
         <input
           type="text"
           placeholder="Shorten a link here..."
-          className= {emptyInput ? "main__input main__empty-input" : "main__input"}          
+          className={
+            (emptyInput && !input.length) ? "main__input main__empty-input" : "main__input"
+          }
           value={input}
           onChange={(e) => setInput(e.target.value)}
         ></input>
-        <button type="submit" className="main__button" onClick={fetchData}>
-          Shorten It!
-        </button>
-      {emptyInput && <span className="main__error">Please add a link</span>}
-      </div>
 
+        <Button
+          override={override}
+          color={color}
+          loading={loading}
+          buttonText={buttonText}
+          fetchData={fetchData}
+        />
+
+        {(emptyInput && !input.length) && <span className="main__error">Please add a link</span>}
+      </div>
 
       {shortenLink?.length === 0 ? (
         <></>
@@ -88,7 +100,7 @@ const MainSection = () => {
 
           <div className="api__right-section">
             <textarea
-            cols="30"
+              cols="30"
               ref={shortLinkRef}
               className="api__short-link"
               value={shortenLink?.result?.full_short_link}
@@ -96,9 +108,10 @@ const MainSection = () => {
               {shortenLink?.result?.full_short_link}
             </textarea>
 
-            <button className="button" type="submit" onClick={copyToClipboard}>
-              {success ? "Copied" : "Copy"}
-            </button>
+            <Button
+              buttonText={success ? "Copied!" : "Copy"}
+              copyToClipboard={copyToClipboard}
+            />
           </div>
         </div>
       )}
