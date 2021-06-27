@@ -1,79 +1,104 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import axios from "axios";
 import Card from "../Card/Card";
 
 import "./MainSection.scss";
 
-import Button from "../Button/Button"
-
+import Button from "../Button/Button";
 
 const MainSection = () => {
   // const url = "https://api.shrtco.de/v2/"
-  const buttonText = "Copy"
+  const buttonText = "Copy";
+  const shortLinkRef = useRef();
 
   const [input, setInput] = useState("");
-  const [shortenLink, setShortenLink] = useState([])
+  const [shortenLink, setShortenLink] = useState([]);
+  const [success, setSuccess] = useState(false);
+  const [emptyInput, setEmptyInput] = useState(false);
 
-
-
-  
   const fetchData = async () => {
+    if (!input.length && !validURL(input)) {
+      setEmptyInput(true);
+    } else {
+      const response = await fetch(
+        `https://api.shrtco.de/v2/shorten?url=${input}`
+      );
 
-    const response = await fetch(
-      `https://api.shrtco.de/v2/shorten?url=${input}`
-    );
+      const data = await response.json();
+      await setShortenLink(data);
 
-    const data =  await response.json();
-    await setShortenLink(data)
-
+      setInput("");
+    }
   };
 
-  
-  useEffect(() => {
+  const validURL = (str) => {
+    var pattern = new RegExp(
+      "^(https?:\\/\\/)?" + // protocol
+        "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+        "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+        "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+        "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+        "(\\#[-a-z\\d_]*)?$",
+      "i"
+    ); // fragment locator
+    console.log(pattern);
+    return !!pattern.test(str);
+  };
 
-    if(input.length > 1) {
-      fetchData()
-    }
-    
-  }, [shortenLink, input, fetchData])
+  // useEffect(() => {
+  //   if (input.length) {
+  //     fetchData();
+  //   }
+  // }, [shortenLink, input, fetchData]);
 
-  const copyLink = () =>{
-    const shortLink = document.getElementById("shortLink");
-    const myBtn = document.getElementById("myBtn");
+  const copyToClipboard = () => {
+    const el = shortLinkRef.current;
+    el.select();
 
-    myBtn.addEventListener("click", () =>{
-      shortLink.select();
+    document.execCommand("Copy");
 
-      document.execCommand("Copy");
-    })
-  }
+    setSuccess(true);
+  };
 
-  
   return (
     <main className="main__container">
       <div className="main__modal">
         <input
           type="text"
           placeholder="Shorten a link here..."
-          className="main__input"
+          className= {emptyInput ? "main__input main__empty-input" : "main__input"}          
+          value={input}
           onChange={(e) => setInput(e.target.value)}
         ></input>
         <button type="submit" className="main__button" onClick={fetchData}>
           Shorten It!
         </button>
+      {emptyInput && <span className="main__error">Please add a link</span>}
       </div>
 
-      {/* {data} */}
 
-      {shortenLink?.length === 0 ? <></> : (
+      {shortenLink?.length === 0 ? (
+        <></>
+      ) : (
         <div className="api__container">
-          <small className="api__full-link">{shortenLink?.result?.original_link}</small>
+          <small className="api__full-link">
+            {shortenLink?.result?.original_link}
+          </small>
 
           <div className="api__right-section">
-            <small id="shortLink" className="api__short-link">{shortenLink?.result?.short_link}</small>
+            <textarea
+            cols="30"
+              ref={shortLinkRef}
+              className="api__short-link"
+              value={shortenLink?.result?.full_short_link}
+            >
+              {shortenLink?.result?.full_short_link}
+            </textarea>
 
-            <Button id="myBtn" buttonText={buttonText} onClick={copyLink} />
+            <button className="button" type="submit" onClick={copyToClipboard}>
+              {success ? "Copied" : "Copy"}
+            </button>
           </div>
         </div>
       )}

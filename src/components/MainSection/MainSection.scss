@@ -20,7 +20,10 @@
         transform: translateY(-50%);
     }   
 
+   
+
     &__input {
+        position: relative;
         flex-basis: 77%;
         padding: 1.5rem 2rem;
         border: none;
@@ -36,6 +39,10 @@
             outline: none;
         }
     }
+
+    &__empty-input {
+        border: 2px solid hsl(0, 87%, 67%);
+    }
     
     &__button {
         padding: 0 2rem;
@@ -47,6 +54,16 @@
         color: #fff;
         cursor: pointer;
     }   
+
+    &__error {
+        color: hsl(0, 87%, 67%);
+        font-size: 1.2rem;
+        position: absolute;
+        bottom: 20px;
+        left: 48px;
+        font-weight: 500;
+        font-style: italic;
+    }
 
     &__header {
         text-align: center;
@@ -70,7 +87,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem;
+        padding: 1rem 2rem;
         background-color: #fff;
         max-width: 78rem;
         margin: 0 auto;
@@ -94,4 +111,11 @@
         grid-gap: 2rem;
     }
 
+}
+
+textarea {
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: auto;
 }
