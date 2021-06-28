@@ -4,12 +4,18 @@
     justify-content: center;
     grid-gap: 2.5rem;
 
+    @media only screen and (max-width: 56.25em) {
+        flex-direction: column;
+        align-items: center;
+    }
+
     &__container {
         max-width: 26rem;
         position: relative;
         background-color: #fff;
         padding: 5.5rem 2rem 2.5rem 2rem;
         border-radius: 4px;
+
 
         &:nth-of-type(2) {
             transform: translateY(22%);
@@ -28,6 +34,15 @@
             width: 24px;
             height: 5px;
             background-color:  hsl(257, 27%, 26%);
+
+            @media only screen and (max-width: 56.25em) {
+                top: unset;
+                width: 35px;
+                height: 5px;
+                bottom: -11%;
+                left: 50%;
+                transform: translateX(-50%) rotate(90deg);
+            }
         }
     }
 
@@ -41,6 +56,11 @@
         background-color: hsl(257, 27%, 26%);
         padding: 1.5rem;
         transform: translateY(-50%);
+        
+        @media only screen and (max-width: 56.25em) {
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     }
 
     &__title {

@@ -6,11 +6,24 @@
         padding: 5rem 0 0 12rem;
         justify-content: space-between;
         align-items: center;
+
+        @media only screen and (max-width: 56.25em) {
+            flex-direction: column-reverse;
+            padding-left: 3rem;
+            text-align: center;
+        }
+        @media only screen and (max-width: 28.125em) {
+            padding: 5rem 2rem 0 3rem;
+        }
     }
 
 
     &__left-section {
         font-family: 'Poppins', sans-serif;
+
+        @media only screen and (max-width: 56.25em) {
+            margin-bottom: 8rem;
+        }
 
     }
 

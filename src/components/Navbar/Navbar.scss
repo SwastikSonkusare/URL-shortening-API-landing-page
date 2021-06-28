@@ -3,6 +3,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media only screen and (max-width: 28.125em) {
+        padding: 4rem;
+    }
     
     &__logo {
         display: flex;
@@ -22,12 +26,9 @@
     
     
     &__item {
-        
         &:not(:last-of-type) {
             margin-right: 2rem;
         }
-
-
     }
     
     &__links {
