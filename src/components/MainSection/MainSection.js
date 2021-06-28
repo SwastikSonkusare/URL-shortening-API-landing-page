@@ -13,7 +13,6 @@ const MainSection = () => {
 
   const override = css`
     display: block;
-    margin: 0 auto;
     border-color: white;
   `;
 
