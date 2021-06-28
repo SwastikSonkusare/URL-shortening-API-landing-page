@@ -49,7 +49,7 @@ const Navbar = () => {
           <Button buttonText={buttonText} />
         </div>
 
-        <div class="navbar__hamburger" onClick={sidebarHandler}>
+        <div className="navbar__hamburger" onClick={sidebarHandler}>
           <img src={hamburgerIcon} alt={hamburgerIcon} />
         </div>
       </div>

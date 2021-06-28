@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import Button from '../Button/Button'
+import Button from '../Button/Button';
 
-import './Boost.scss'
+import './Boost.scss';
 
 const Boost = () => {
     const buttonText = "Get Started"

@@ -1,12 +1,12 @@
 import React from "react";
 
-import "./Footer.scss";
-
-import facebookIcon from "../../assests/images/icon-facebook.svg"
-import twitterIcon from "../../assests/images/icon-twitter.svg"
-import instagramIcon from "../../assests/images/icon-instagram.svg"
-import pinterestIcon from "../../assests/images/icon-pinterest.svg"
+import facebookIcon from "../../assests/images/icon-facebook.svg";
+import twitterIcon from "../../assests/images/icon-twitter.svg";
+import instagramIcon from "../../assests/images/icon-instagram.svg";
+import pinterestIcon from "../../assests/images/icon-pinterest.svg";
 import LogoSvg from "../LogoSvg/LogoSvg";
+
+import "./Footer.scss";
 
 const Footer = () => {
     const color = "#fff"
@@ -30,7 +30,6 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      {/* <img src={Logo} alt={Logo} className="footer__logo"></img> */}
       <LogoSvg color={color} />
 
       <div className="footer__container">

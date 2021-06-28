@@ -1,11 +1,10 @@
 import React from "react";
 
-import './Card.scss';
-
 import BrandRecognitionLogo from "../../assests/images/icon-brand-recognition.svg";
 import DetailedRecordsLogo from "../../assests/images/icon-detailed-records.svg";
 import FullyCustomizableLogo from "../../assests/images/icon-fully-customizable.svg";
 
+import './Card.scss';
 const Card = () => {
   let cardData = [
     {
@@ -31,7 +30,7 @@ const Card = () => {
   return (
     <div className="card">
       {cardData.map((card) => (
-        <div className="card__container">
+        <div className="card__container" key={card.title}>
           <img src={card.image} alt={card.image} className="card__logo"></img>
 
           <h4 className="card__title">{card.title}</h4>

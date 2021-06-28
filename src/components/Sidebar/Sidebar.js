@@ -13,8 +13,8 @@ const Sidebar = ({ sidebarRef }) => {
     }
 
   return (
-    <aside class="sidebar" ref={sidebarRef}>
-      <div class="sidebar__toggle">
+    <aside className="sidebar" ref={sidebarRef}>
+      <div className="sidebar__toggle">
         <img src={closeIcon} alt={closeIcon} onClick={closeSideBarHandler} />
       </div>
 

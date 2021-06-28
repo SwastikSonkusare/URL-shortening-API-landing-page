@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./Button.scss";
 import ClipLoader from "react-spinners/ClipLoader";
-import { css } from "@emotion/react";
+
+import "./Button.scss";
 
 const Button = ({
   buttonText,

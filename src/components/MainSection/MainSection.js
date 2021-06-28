@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 
 import { css } from "@emotion/react";
-import ClipLoader from "react-spinners/ClipLoader";
 
 import Card from "../Card/Card";
 import Button from "../Button/Button";

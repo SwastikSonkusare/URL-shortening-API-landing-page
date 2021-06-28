@@ -1,10 +1,10 @@
-import React from 'react'
-
-import './Header.scss'
-import IllustrationImage from '../../assests/images/illustration-working.svg'
+import React from 'react';
 
 import Button from '../Button/Button';
 
+import IllustrationImage from '../../assests/images/illustration-working.svg';
+
+import './Header.scss';
 const Header = () => {
     const buttonText = "Get Started";
 
