@@ -1,0 +1,48 @@
+.sidebar {
+  position: fixed;
+  padding: 2rem;
+  width: 30rem;
+  height: 100%;
+  z-index: 10;
+  transform: translate(-100%);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+
+  @media only screen and (max-width: 37.5em) {
+    width: 100%;
+  }
+
+  &__toggle {
+    text-align: end;
+    cursor: pointer;
+    margin-bottom: 3rem;
+  }
+}
+
+.show-sidebar {
+  background-color: hsl(260, 8%, 14%);
+  opacity: 1;
+  transform: translate(0);
+
+  & .navbar__items {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 2rem;
+  }
+  & .navbar__item {
+    margin: 0 !important;
+  }
+
+  & .navbar__links {
+    font-size: 2rem;
+  }
+
+  & .navbar__buttons {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 2rem;
+    text-align: center;
+
+    font-size: 2rem;
+  }
+}

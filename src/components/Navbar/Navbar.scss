@@ -13,6 +13,11 @@
     &__items {
         list-style: none;
         display: flex;
+        align-items: center;
+
+        @media only screen and (max-width: 56.25em) {
+            display: none;
+        }
     }
     
     
@@ -21,6 +26,8 @@
         &:not(:last-of-type) {
             margin-right: 2rem;
         }
+
+
     }
     
     &__links {
@@ -29,6 +36,10 @@
         font-size: 1.4rem;
         font-weight: 700;
         color: hsl(0, 0%, 75%);
+
+        @media only screen and (max-width: 56.25em) {
+            font-size: 2rem;;
+        }
     }
 
     &__buttons {
@@ -38,6 +49,10 @@
         font-size: 1.4rem;
         font-weight: 700;
 
+        @media only screen and (max-width: 56.25em) {
+            display: none;
+        }
+
         &-login {
             all: unset;
             font-family: inherit;
@@ -45,5 +60,14 @@
             font-weight: inherit;
             color: hsl(0, 0%, 75%);
         }      
+    }
+
+    &__hamburger {
+        display: none;
+        cursor: pointer;
+
+        @media only screen and (max-width: 56.25em) {
+            display: block;
+        }
     }
 }
